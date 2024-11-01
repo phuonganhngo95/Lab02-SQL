@@ -1,4 +1,4 @@
-﻿-- 1.
+-- 1.
 /*USE master
 GO
 
@@ -32,6 +32,7 @@ CREATE TABLE Employee (
 -- 6.
 ALTER TABLE Employee
 ADD Phone varchar(20)
+GO
 
 -- 7.
 INSERT INTO Employee (ID, FullName, Gender, BirthDay, Address, Email, Salary, Phone) VALUES
@@ -43,29 +44,37 @@ INSERT INTO Employee (ID, FullName, Gender, BirthDay, Address, Email, Salary, Ph
 
 -- 8.
 SELECT * FROM Employee
+GO
 
 -- 9.
 SELECT * FROM Employee WHERE Salary > 2000000
+GO
 
 -- 10.
 SELECT * FROM Employee WHERE MONTH(BirthDay) = MONTH(GETDATE())
+GO
 
 -- 11.
 SELECT ID, FullName, DATEDIFF(YEAR, BirthDay, GETDATE()) AS AGE,
 	FORMAT(Birthday, 'dd/mm/yyyy') AS Birthday
 FROM Employee
+GO
 
 -- 12.
 SELECT * FROM Employee WHERE Address LIKE '%Hà Nội%'
+GO
 
 -- 13.
 UPDATE Employee SET FullName = 'John' WHERE ID = 1
-
+GO
 -- 14.
 DELETE FROM Employee WHERE DATEDIFF(YEAR, BirthDay, GETDATE()) > 50
+GO
 
 -- 15.
 SELECT * INTO GetOlder FROM Employee WHERE DATEDIFF(YEAR, BirthDay, GETDATE()) > 50
+GO
 
 -- 16.
 SELECT COUNT(*) AS TotalEmployee FROM Employee
+GO
